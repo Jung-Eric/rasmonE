@@ -465,9 +465,9 @@ back = 0
 function_on = 0
 
 #센서 값
-sen_temp = 25
-sen_hum = 30
-sen_lum = 300
+temp = 25
+hum = 30
+lum = 300
 
 #캐릭터 지표 반영
 deg_full = 50
@@ -579,8 +579,12 @@ def show_degree():
     pygame.draw.rect(screen, [210,210,210 ],[75+deg_t,312-20-2,5,16])
 
     #자동 수치 감소--------------------------------------------------
-    deg_temp = deg_temp - 0.3
-    deg_full = deg_full - 0.2
+    if(temp<15):
+        deg_temp = deg_temp - 0.08
+    elif (temp>=30):
+        deg_temp = deg_temp + 0.08
+    
+    deg_full = deg_full - 0.08
 
     pygame.draw.rect(screen, [123,123,123],[75,310,254-str,16])
     pygame.draw.rect(screen, [240,240,240],[75,312,250-str,12])
@@ -1941,10 +1945,10 @@ while True:
                 motion_num = 0
                 coin_motion_num = 0
                 stairs = []
-                stairs.clear()
+                #stairs.clear()
                 stairs.append(0)
                 prizeType = []
-                prizeType.clear()
+                #prizeType.clear()
                 drag_x = 0
                 drag_y = 0
                 imp = 0

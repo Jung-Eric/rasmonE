@@ -2022,11 +2022,6 @@ while True:
                             Get_Prize(prizeType[total_stair-7])
                         if prizeType[total_stair-7] == 2:
                             game_stair_reverse_check = 1
-                            #GPIO_BUZZER.play(1)
-                        elif prizeType[total_stair-7] == 1:
-                            #GPIO_BUZZER.play(1)
-                        elif prizeType[total_stair-7] >= 3:
-                            #GPIO_BUZZER.play(0)
                         prizeType[total_stair-7] = 0
                     elif 5 < motion_num <9:
                         if game_stair_reverse_check == 1:
@@ -2051,11 +2046,6 @@ while True:
                             Get_Prize(prizeType[total_stair-7])
                         if prizeType[total_stair-7] == 2:
                             game_stair_reverse_check = 1
-                            #GPIO_BUZZER.play(1)
-                        elif prizeType[total_stair-7] == 1:
-                            #GPIO_BUZZER.play(1)
-                        elif prizeType[total_stair-7] >= 3:
-                            #GPIO_BUZZER.play(0)
                         prizeType[total_stair-7] = 0
                     elif 5 < motion_num <9:
                         if game_stair_reverse_check == 1:

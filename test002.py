@@ -5,7 +5,6 @@ import pygame
 import spritesheet
 import random
 
-
 import RPi.GPIO as GPIO
 import GPIO_KEYPAD
 import GPIO_TEMPHUMI
@@ -13,8 +12,6 @@ import GPIO_ILUM
 import GPIO_BUZZER
 from time import sleep
 from multiprocessing import Process, Queue
-
-
 
 # initial values------------------------------------------------------
 KEYPAD_BUF = 1
@@ -477,9 +474,9 @@ temp = 25
 hum = 30
 lum = 300
 
-sen_temp = 0
+sen_temp = 25
 sen_hum = 0
-sen_lum = 0
+sen_lum = 300
 
 #캐릭터 지표 반영
 deg_full = 50
@@ -637,7 +634,7 @@ def make_shade():
     imps = sen_lum
     imps = (int)(imps)
     #임의의 기준값
-    stand = 400
+    stand = 600
     
     #pygame.draw.rect(screen, (255, 255, 255, 127), pygame.Rect(0, 0, 450, 357))
     #pygame.draw.rect(screen, (155, 155, 155, 40), [0,0,450,357])
@@ -655,7 +652,7 @@ def make_shade():
         s.fill((255,255,180))           
         screen.blit(s, (0,0)) 
 
-    if (sen_lum < 500):
+    if (sen_lum < 600):
         sen_lum = sen_lum+2
     
 
@@ -1782,7 +1779,7 @@ while True:
 	    tempQ.put(temp)
 	    humiQ.put(humi)
 	    ilumQ.put(ilum)
-	    print(temp, humi, ilum)
+	    #print(temp, humi, ilum)
     
     
     #출력 관련-------------------------------------------------------
@@ -2025,11 +2022,11 @@ while True:
                             Get_Prize(prizeType[total_stair-7])
                         if prizeType[total_stair-7] == 2:
                             game_stair_reverse_check = 1
-                            GPIO_BUZZER.play(1)
+                            #GPIO_BUZZER.play(1)
                         elif prizeType[total_stair-7] == 1:
-                            GPIO_BUZZER.play(1)
+                            #GPIO_BUZZER.play(1)
                         elif prizeType[total_stair-7] >= 3:
-                            GPIO_BUZZER.play(0)
+                            #GPIO_BUZZER.play(0)
                         prizeType[total_stair-7] = 0
                     elif 5 < motion_num <9:
                         if game_stair_reverse_check == 1:
@@ -2054,11 +2051,11 @@ while True:
                             Get_Prize(prizeType[total_stair-7])
                         if prizeType[total_stair-7] == 2:
                             game_stair_reverse_check = 1
-                            GPIO_BUZZER.play(1)
+                            #GPIO_BUZZER.play(1)
                         elif prizeType[total_stair-7] == 1:
-                            GPIO_BUZZER.play(1)
+                            #GPIO_BUZZER.play(1)
                         elif prizeType[total_stair-7] >= 3:
-                            GPIO_BUZZER.play(0)
+                            #GPIO_BUZZER.play(0)
                         prizeType[total_stair-7] = 0
                     elif 5 < motion_num <9:
                         if game_stair_reverse_check == 1:
@@ -2078,9 +2075,9 @@ while True:
                 elif On_work == 4:
                     #게임 종료 신
                     if total_stair>100:
-                        GPIO_BUZZER.play(3)              
+                        #GPIO_BUZZER.play(3)              
                     else :
-                        GPIO_BUZZER.play(2)     
+                        #GPIO_BUZZER.play(2)     
                     screen.blit (all_order[4], (45,80))
                     if game_end_time_num <15:
                         game_end_time_num = game_end_time_num + 1

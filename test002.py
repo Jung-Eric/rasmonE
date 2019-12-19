@@ -38,6 +38,9 @@ def getKeyThread(name, keyQ):
 		sleep(0.1)
 
 def getTempHumiIlumThread(name, tempQ, humiQ, ilumQ):
+        global sen_lum
+        global sen_hum
+        global sen_temp
 	while(1):
 		temp, humi = GPIO_TEMPHUMI.read()
 		ilum = GPIO_ILUM.read()
@@ -47,6 +50,9 @@ def getTempHumiIlumThread(name, tempQ, humiQ, ilumQ):
 		tempQ.put(temp)
 		humiQ.put(humi)
 		ilumQ.put(ilum)
+		sen_lum = ilum
+		sen_hum = hum
+		sen_temp = temp
 		sleep(1)
 
 # KEYPAD thread init
@@ -470,6 +476,10 @@ function_on = 0
 temp = 25
 hum = 30
 lum = 300
+
+sen_temp = 0
+sen_hum = 0
+sen_lum = 0
 
 #캐릭터 지표 반영
 deg_full = 50

@@ -2064,10 +2064,7 @@ while True:
                         game_stair_reverse_check = 0
                 elif On_work == 4:
                     #게임 종료 신
-                    if total_stair>100:
-                        #GPIO_BUZZER.play(3)              
-                    else :
-                        #GPIO_BUZZER.play(2)     
+                    if total_stair>100:  
                     screen.blit (all_order[4], (45,80))
                     if game_end_time_num <15:
                         game_end_time_num = game_end_time_num + 1
